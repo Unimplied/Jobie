@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit previous Application</title>
-</head>
-<body>
+<% layout('./layouts/boilerplate') %> 
     <form action="/applications/<%= application._id %>?_method=PUT" method="POST">
         <div>
             <label for="">Company Name</label>
@@ -25,10 +18,13 @@
         </div>
         <div>
             <label for="">Application Status</label>
-            <input type="text" id="status" name="application[status]" value="<%= application.status %> ">
+            <select id="status" name="application[status]">
+                <option value="Active">Active</option>
+                <option value="Interviewing">Interviewing</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Accepeted">Accepted</option>
+            </select>        
         </div>
         <button> Edit Application</button>
     </form>
     <a href="/applications/<%= application._id %> "> Back to Application </a>
-</body>
-</html>

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Details</title>
-</head>
-<body>
+<% layout('./layouts/boilerplate') %> 
     <h1> Application Details </h1>
     <h2> Company Name: <%= application.companyName %> </h2>
     <h2> Job Title: <%= application.jobTitle %> </h2>
@@ -14,11 +7,9 @@
     <h2> Application Status: <%= application.status %> </h2>
 
     <h3><a href="/applications/<%= application._id %>/edit"> Edit Application</a></h3>
-    
+
     <form action="/applications/<%= application._id %>?_method=DELETE" method="POST"> 
         <button>Delete Application</button> 
     </form>
     
     <h3><a href="/applications"> Return to all applications</a></h3>
-</body>
-</html>
