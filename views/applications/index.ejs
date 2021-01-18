@@ -7,9 +7,12 @@
 </head>
 <body>
     <h1> All Applications </h1>
+    <div>
+        <a href="/applications/new">Add New Application</a>
+    </div>
     <ul>
         <% for (let application of applications) {%>
-            <li> application.companyName</li> 
+            <li> <a href="/applications/<%=application._id%>"><%=application.companyName%></a> </li> 
         <% } %> 
     </ul>
 </body>

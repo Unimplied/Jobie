@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
+
 const path = require('path');
 const Application = require('./models/application');
 
@@ -21,6 +23,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+
 app.get('/', (req, res) => {
     res.render('home')
 });
@@ -34,8 +39,45 @@ app.get('/', (req, res) => {
 
 app.get('/applications', async (req, res) => {
     const applications = await Application.find({});
-    res.render('applications/index', {applications} )
+    res.render('applications/index', { applications } )
 })
+
+app.get('/applications/new', (req, res) => {
+    res.render('applications/new')
+});
+
+// app.post('/applications', async (req, res) => {
+//     res.send(req.body.application);
+// });
+
+app.post('/applications', async (req, res) => {
+    const application = new Application(req.body.application);
+    // console.log(application);
+    await application.save();
+    res.redirect(`/applications/${application._id}`);
+});
+
+app.get('/applications/:id', async (req, res) => {
+    const application = await Application.findById(req.params.id);
+    res.render('applications/details', { application });
+});
+
+app.get('/applications/:id/edit', async (req, res) => {
+    const application = await Application.findById(req.params.id);
+    res.render('applications/edit', { application });
+});
+
+app.put('/applications/:id', async (req, res) => {
+    const { id } = req.params;
+    const application = await Application.findByIdAndUpdate(id, { ...req.body.application });
+    res.redirect(`/applications/${application._id}`);
+});
+
+app.delete('/applications/:id', async (req, res) => {
+    const { id } = req.params;
+    await Application.findByIdAndDelete(id);
+    res.redirect('/applications');
+});
 
 app.listen(3000, ()=> {
     console.log('Serving on port 3000')

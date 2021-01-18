@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit previous Application</title>
+</head>
+<body>
+    <form action="/applications/<%= application._id %>?_method=PUT" method="POST">
+        <div>
+            <label for="">Company Name</label>
+            <input type="text" id="companyName" name="application[companyName]" value="<%= application.companyName %> ">
+        </div>
+        <div>
+            <label for="">Job Title</label>
+            <input type="text" id="jobTitle" name="application[jobTitle]" value="<%= application.jobTitle %> ">
+        </div>
+        <div>
+            <label for="">Job Location</label>
+            <input type="text" id="jobLocation" name="application[jobLocation]" value="<%= application.jobLocation %> ">
+        </div>
+        <div>
+            <label for="">Application Date</label>
+            <input type="date" id="dateApplied" name="application[dateApplied]" value="<%= application.dateApplied %> ">
+        </div>
+        <div>
+            <label for="">Application Status</label>
+            <input type="text" id="status" name="application[status]" value="<%= application.status %> ">
+        </div>
+        <button> Edit Application</button>
+    </form>
+    <a href="/applications/<%= application._id %> "> Back to Application </a>
+</body>
+</html>

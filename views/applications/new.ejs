@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit new Application</title>
+</head>
+<body>
+    <form action="/applications" method="POST">
+        <div>
+            <label for="">Company Name</label>
+            <input type="text" id="companyName" name="application[companyName]">
+        </div>
+        <div>
+            <label for="">Job Title</label>
+            <input type="text" id="jobTitle" name="application[jobTitle]">
+        </div>
+        <div>
+            <label for="">Job Location</label>
+            <input type="text" id="jobLocation" name="application[jobLocation]">
+        </div>
+        <div>
+            <label for="">Application Date</label>
+            <input type="date" id="dateApplied" name="application[dateApplied]">
+        </div>
+        <div>
+            <label for="">Application Status</label>
+            <input type="text" id="status" name="application[status]">
+        </div>
+        <button> Add Application to List </button>
+    </form>
+</body>
+</html>
