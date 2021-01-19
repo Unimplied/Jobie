@@ -1,30 +1,85 @@
 <% layout('./layouts/boilerplate') %> 
-    <form action="/applications" method="POST">
-        <div>
-            <label for="">Company Name</label>
-            <input type="text" id="companyName" name="application[companyName]">
+<div class="col-md-6 offset-md-6 col-xl-6 offset-xl-3">
+    <div class="card shadow mb-3">
+        <div class="card-body">
+            <h1 class="text-center"> Add Application</h1>
+                <div class="col-6 offset-3">
+                    <form action="/applications" class="needs-validation" method="POST" <%// custom styles not working novalidate %> >
+                        <div>
+                            <label for="companyName" class="form-label">Company Name</label>
+                            <input type="text" class="form-control" id="companyName" name="application[companyName]" required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter the company's name
+                            </div>
+                        </div>
+                        <div>
+                            <label for="jobTitle" class="form-label">Job Title</label>
+                            <input type="text" class="form-control" id="jobTitle" name="application[jobTitle]" required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter the position you applied for
+                            </div>
+                        </div>
+                        <div>
+                            <label for="jobLocation" class="form-label">Job Location</label>
+                            <input type="text" class="form-control" id="jobLocation" name="application[jobLocation]" required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter the company's location
+                            </div>
+                        </div>
+                        <div>
+                            <label for="dateApplied" class="form-label">Application Date</label>
+                            <input type="date" class="form-control" id="dateApplied" name="application[dateApplied]" required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter the date you applied
+                            </div>
+                        </div>
+                        <div>
+                            <label for="status" class="form-label">Application Status</label>
+                            <select id="status"  class="form-select" name="application[status]" required>
+                                <option value="" selected disabled hidden> Select Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Interviewing">Interviewing</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="Accepted">Accepted</option>
+                            </select>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please select an option from the drop down menu
+                            </div>
+                        </div>
+                        <div>
+                            <label for="notes" class="form-label">Notes</label>
+                            <textarea class="form-control" id="notes" rows="2" name="application[notes]" required></textarea>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter the date you applied
+                            </div>
+                        </div>
+                        <button class="btn btn-info my-3"> Add Application to List </button>
+                    </form>
+
+                    <div class= mb-3>
+                        <a href="/applications">Back to Applications</a>
+                    </div>
+                
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="">Job Title</label>
-            <input type="text" id="jobTitle" name="application[jobTitle]">
-        </div>
-        <div>
-            <label for="">Job Location</label>
-            <input type="text" id="jobLocation" name="application[jobLocation]">
-        </div>
-        <div>
-            <label for="">Application Date</label>
-            <input type="date" id="dateApplied" name="application[dateApplied]">
-        </div>
-        <div>
-            <label for="">Application Status</label>
-            <select id="status" name="application[status]">
-                <option value="Active">Active</option>
-                <option value="Interviewing">Interviewing</option>
-                <option value="Rejected">Rejected</option>
-                <option value="Accepeted">Accepted</option>
-            </select>
-        </div>
-        <button> Add Application to List </button>
-    </form>
-    <a href="/applications">Back to Applications</a>
+    </div>
+                

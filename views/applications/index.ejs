@@ -1,12 +1,30 @@
-<% layout('./layouts/boilerplate') %> 
-
-    <h1> All Applications </h1>
+<% layout('./layouts/boilerplate') %>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-auto me-auto">
+            <h1> All Applications </h1>
+        </div>
+        <div class="col-auto">
+            <div class="dropdown my-3">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Legend
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li class="dropdown-item list-group-item-light">Active</li>
+                <li class="dropdown-item list-group-item-info">Interviewing</li>
+                <li class="dropdown-item list-group-item-danger">Rejected</li>
+                <li class="dropdown-item list-group-item-success">Accepted</li>
+                </ul>
+            </div>
+        </div> 
+    </div>
     <h5 class="mb-5">
         <a href="/applications/new">Add New Application</a>
     </h5>
     <h5>Your applications at a glance</h5>
+    <h6>You have <%= applications.length %> applications open. </h6>
 
-    <div class="list-group mb-5">
+    <div class="list-group mb-5 mt-3">
         <% for (let application of applications) {%>
             <% if(application.status === 'Rejected') {%> 
             <a href="/applications/<%= application._id %> " class="list-group-item list-group-item-danger">
@@ -39,3 +57,4 @@
                 <% }  %> 
         <% } %> 
     </div>
+</div> 

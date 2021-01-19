@@ -1,15 +1,26 @@
-<% layout('./layouts/boilerplate') %> 
-    <h1> Application Details </h1>
-    <h2> Company Name: <%= application.companyName %> </h2>
-    <h2> Job Title: <%= application.jobTitle %> </h2>
-    <h2> Job Location: <%= application.jobLocation %> </h2>
-    <h2> Application Date: <%= application.dateApplied %> </h2>
-    <h2> Application Status: <%= application.status %> </h2>
+<% layout('./layouts/boilerplate') %>
 
-    <h3><a href="/applications/<%= application._id %>/edit"> Edit Application</a></h3>
+    <div class="card mt-5">
+        <div class="card-header">
+            Company Name: <%= application.companyName %>  
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"> Position: <%= application.jobTitle %> </li>
+            <li class="list-group-item"> Location: <%= application.jobLocation %> </li>
+            <li class="list-group-item"> Date Applied: <%= application.dateApplied %> </li>
+            <li class="list-group-item"> Application Status: <%= application.status %> </li>
+            <% if (application.notes != 0) { %> 
+            <li class="list-group-item"> Notes: <%= application.notes %> </li>
+            <% } %>
+        </ul>  
 
-    <form action="/applications/<%= application._id %>?_method=DELETE" method="POST"> 
-        <button>Delete Application</button> 
-    </form>
+        <div class="card-body">
+            <a href="/applications/<%= application._id %>/edit" class="btn btn-info my-1"> Edit Application</a>
+
+            <form action="/applications/<%= application._id %>?_method=DELETE" method="POST"> 
+                <button class="btn btn-danger mb-2" >Delete Application</button> 
+            </form> 
+            <a href="/applications"> Return to all applications</a>
+        </div>
     
-    <h3><a href="/applications"> Return to all applications</a></h3>
+    </div>

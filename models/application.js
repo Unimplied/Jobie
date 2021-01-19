@@ -7,6 +7,7 @@ const ApplicationSchema = new Schema({
     jobLocation: String,
     dateApplied: Date,
     status: String,
+    notes: String
 });
 
 module.exports = mongoose.model('Application', ApplicationSchema);
