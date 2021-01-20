@@ -1,6 +1,5 @@
 <% layout('./layouts/boilerplate') %>
-
-    <div class="card mt-5">
+    <div class="card mt-5 shadow">
         <div class="card-header">
             Company Name: <%= application.companyName %>  
         </div>
@@ -15,12 +14,12 @@
         </ul>  
 
         <div class="card-body">
-            <a href="/applications/<%= application._id %>/edit" class="btn btn-info my-1"> Edit Application</a>
-
-            <form action="/applications/<%= application._id %>?_method=DELETE" method="POST"> 
-                <button class="btn btn-danger mb-2" >Delete Application</button> 
-            </form> 
+                <div class="d-grid col-2">
+                    <a href="/applications/<%= application._id %>/edit" class="btn btn-info mb-1 btn-size"> Edit Application</a>
+                    <form action="/applications/<%= application._id %>?_method=DELETE" method="POST"> 
+                        <button class="btn btn-danger btn-size mb-2" >Delete Application</button> 
+                    </form> 
+                </div>
             <a href="/applications"> Return to all applications</a>
         </div>
-    
     </div>

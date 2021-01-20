@@ -1,0 +1,32 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+   
+a {
+    text-decoration: none;
+}
+
+.btn-size {
+    width: 175px !important;
+}
+.navbar-custom {
+    background-color: #5E5E5E
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #FCFAF9
+}
+
+.footer-custom {
+    background-color: #5E5E5E 
+}
+
+.legend-color {
+    background-color: #cecece;
+    color: #000000
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000…p='round' stroke-miterlimit='10' d='M47h22M4 15h22M423h22'/%3e%3c/svg%3e");
+    }

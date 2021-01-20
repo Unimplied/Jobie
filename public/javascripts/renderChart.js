@@ -1,15 +1,5 @@
-<% layout('./layouts/boilerplate') %>
-
-<h1> Charted application statistics </h1>
-<a href="/applications">All Applications</a> 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-<canvas id="myChart" width="200" height="100"></canvas>
-<!-- <script src="/javascripts/renderChart.js"></script> -->
-<script>
-    const data = [ <%=JSON.stringify(totalApps)%>, <%=JSON.stringify(activeApps)%>, <%=JSON.stringify(interviewingApps)%>, <%=JSON.stringify(rejectedApps)%>, <%=JSON.stringify(acceptedApps)%>]
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ['Total Applications', 'Active Applications', 'Actively Interviewing', 'Rejected', 'Accepted'],
@@ -44,4 +34,3 @@
         }
     }
 });
-</script>

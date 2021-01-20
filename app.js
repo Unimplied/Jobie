@@ -42,7 +42,12 @@ app.get('/', (req, res) => {
 // });
 
 app.get('/stats', async (req, res) => {
-    res.render('applications/stats');
+    const totalApps = await Application.countDocuments({})
+    const acceptedApps = await Application.countDocuments({status:'Accepted'});
+    const interviewingApps = await Application.countDocuments({status:'Interviewing'});
+    const activeApps = await Application.countDocuments({status:'Active'});
+    const rejectedApps = await Application.countDocuments({status:'Rejected'});
+    res.render('applications/stats', { totalApps, acceptedApps, interviewingApps, activeApps, rejectedApps });
 });
 
 app.get('/applications', async (req, res) => {
