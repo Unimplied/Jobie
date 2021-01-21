@@ -31,15 +31,20 @@ body {
     text-shadow:none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Crimson Text', serif;
-}
-
 .fadeIn {
-    animation: fadeInScale 450ms ease-in;
+    animation: fadeIn 450ms ease-in;
     animation-delay: 200ms;
     animation-fill-mode: forwards;
     opacity:0;
+}
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.01);
+    
 }
 
 @media only screen and (max-width:1242px) {
@@ -48,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-@keyframes fadeInScale {
+@keyframes fadeIn {
     0% {
         opacity: 0;
     }

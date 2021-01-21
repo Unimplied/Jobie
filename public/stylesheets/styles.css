@@ -1,5 +1,6 @@
 body {
     font-family: 'Lato', sans-serif;
+    background-color: #efeeee;
 }
    
 a {
@@ -9,13 +10,19 @@ a {
 .btn-size {
     width: 175px !important;
 }
+
 .navbar-custom {
-    background-color: #5E5E5E
+    background-color: #efeeee;
+    /* background-color: black; */
+    height:35px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
-    color: #FCFAF9
+    /* color: #FCFAF9 */
+    color:#5E5E5E
 }
 
 .footer-custom {
@@ -23,6 +30,7 @@ a {
 }
 
 .legend-color {
+    border-radius: 30px;
     background-color: #cecece;
     color: #000000
 }
@@ -30,3 +38,23 @@ a {
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000…p='round' stroke-miterlimit='10' d='M47h22M4 15h22M423h22'/%3e%3c/svg%3e");
     }
+
+.card {
+    /* border-color: #FFF 20%; */
+    border-radius: 7px;
+}
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.01);
+}
+
+/* .dark-shadow {
+    box-shadow: 6px 6px 16px  #d1cdc7 50%;
+}
+
+.light-shadow {
+    box-shadow: -6px -6px 16px  #FFFFFF 50%;
+} */

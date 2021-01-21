@@ -24,8 +24,8 @@
     <h5>Your applications at a glance</h5>
     <h6>You have <%= applications.length %> applications open. </h6>
 
-    <div class="list-group mb-5 mt-3">
-        <% for (let application of applications) {%>
+    <% for (let application of applications) {%>
+    <div class="card my-2 zoom shadow-sm">
             <% if(application.status === 'Rejected') {%> 
             <a href="/applications/<%= application._id %> " class="list-group-item list-group-item-danger">
                 <div class="d-flex w-100 justify-content-between">
@@ -55,6 +55,8 @@
                     <p class="mb-1"> <%= application.jobTitle %> </p>
                 </a>
                 <% }  %> 
-        <% } %> 
-    </div>
+
+    </div> 
+    <% } %> 
 </div> 
+<script src="/javascripts/addClass.js"></script>
