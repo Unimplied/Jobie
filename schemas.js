@@ -10,8 +10,8 @@ const Joi = require("joi");
                     // .raw()
                     // .error(() => "message")
                     .required(),
-        status: Joi.string().required(),
-        notes: Joi.string()
+        status: Joi.string().valid('Active', 'Interviewing', 'Rejected', 'Accepted').required(),
+        notes: Joi.string().empty('').default('default value').optional()
     }).required()
 });
 
