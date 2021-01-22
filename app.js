@@ -121,12 +121,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/fakeUser', async (req, res) => {
-    const user = new User({ email: 'alex@gmail.com', username: 'alex'});
-    const newUser = await User.register(user, 'alex');
-    res.send(newUser);
-});
-
 app.use('/applications', applications);
 app.use('/stats', stats);
 app.use('/', users)
