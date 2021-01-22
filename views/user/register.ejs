@@ -1,0 +1,40 @@
+<% layout('./layouts/boilerplate') %>
+<div class="col-md-6 offset-md-6 col-xl-6 offset-xl-3 align-items-center">
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <h1 class="text-center">Register</h1>
+                    <div class="col-6 offset-3">
+                        <form action="/register" method="POST" class="validated-form" <%// custom styles not working novalidate %>>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" class="form-control" id="email" name="email" required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter your e-mail
+                            </div>
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter your username
+                            </div>
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter your password
+                            </div>
+                        <button class="btn btn-info my-3"> Register </button>
+                    </form>
+                    <div class= mb-3>
+                        <a href="/"> Back to home </a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
