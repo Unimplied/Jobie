@@ -10,8 +10,7 @@ const User = require('./models/user');
 
 const applications = require('./routes/applications') // applications routes
 const stats = require('./routes/stats'); // stats route
-const users = require('./routes/users');
-
+const users = require('./routes/users'); 
 
 const ejsMate = require('ejs-mate');
 const path = require('path');

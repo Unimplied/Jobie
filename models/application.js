@@ -7,7 +7,11 @@ const ApplicationSchema = new Schema({
     jobLocation: String,
     dateApplied: Date,
     status: String,
-    notes: String
+    notes: String,
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 module.exports = mongoose.model('Application', ApplicationSchema);

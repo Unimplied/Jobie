@@ -4,6 +4,7 @@ const router = express.Router();
 const catchAsync = require('../utilities/catchAsync');
 const passport = require('passport');
 
+
 router.get('/register', async (req, res) => {
     res.render('user/register');
 });
