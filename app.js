@@ -61,8 +61,8 @@ const scriptSrcUrls = [
     "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js",
     "https://stackpath.bootstrapcdn.com",
-    "https://api.tiles.mapbox.com",
-    "https://api.mapbox.com",
+    "https://use.fontawesome.com/releases/v5.15.2/js/all.js",
+    "https://use.fontawesome.com/releases/v5.15.2/css/svg-with-js.css",
     "https://kit.fontawesome.com",
     "https://cdnjs.cloudflare.com",
     "https://cdn.jsdelivr.net",
@@ -77,9 +77,7 @@ const styleSrcUrls = [
     "https://use.fontawesome.com",
 ];
 const connectSrcUrls = [
-    "https://api.mapbox.com",
-    "https://*.tiles.mapbox.com",
-    "https://events.mapbox.com",
+
 ];
 const fontSrcUrls = [];
 app.use(
