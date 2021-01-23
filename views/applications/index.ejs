@@ -1,9 +1,16 @@
 <% layout('./layouts/boilerplate') %>
 <div class="container mt-3">
     <div class="row">
+        <% if(!searchQuery) {%> 
         <div class="col-auto me-auto">
             <h1> All Applications </h1>
         </div>
+        <%} else { %> 
+            <div class="col-auto me-auto">
+                <h1> Search Results </h1>
+            </div>
+        <% } %> 
+
         <div class="col-auto">
             <div class="dropdown my-3">
                 <button class="btn legend-color btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -18,11 +25,27 @@
             </div>
         </div> 
     </div>
-    <h5 class="mb-5">
+    <h5>
         <a href="/applications/new">Add New Application</a>
     </h5>
+
+    <form action="/applications" method="GET">
+        <div>
+            <input type="text" name="search" placeholder="Search..." class="form-control mb-1">
+        </div>
+        <% if(searchQuery){ %>
+            <div class="mb-3">
+                <a href="/applications" class="mb-">Back to all Applications</a>
+            </div>
+        <% } %> 
+    </form>
+    <% if(applications.length == 0 ) {%>
+        <h5> No Applications to display </h5>
+    <%} %> 
+    <% if(!searchQuery) {%> 
     <h5>Your applications at a glance</h5>
     <h6>You have <%= applications.length %> applications open. </h6>
+    <% } %> 
 
     <% for (let application of applications) {%>
     <div class="card my-2 zoom shadow-sm">

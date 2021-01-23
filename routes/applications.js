@@ -16,18 +16,17 @@ const validateApplication = (req, res, next) => { // application validation midd
     }
 }
 
-router.get('/', isLoggedIn, catchAsync(applications.index))
+router.route('/')
+    .get( isLoggedIn, catchAsync(applications.index))
+    .post( isLoggedIn, validateApplication, catchAsync(applications.newApplication))
 
 router.get('/new', isLoggedIn, applications.renderNewForm);
 
-router.post('/', isLoggedIn, validateApplication, catchAsync(applications.newApplication));
-
-router.get('/:id', isLoggedIn, catchAsync(applications.displayApplication));
+router.route('/:id')
+    .get(isLoggedIn, catchAsync(applications.displayApplication))
+    .put(isLoggedIn, validateApplication, catchAsync(applications.editApplication))
+    .delete(isLoggedIn, catchAsync(applications.deleteApplication))
 
 router.get('/:id/edit', isLoggedIn, catchAsync(applications.renderEditForm));
-
-router.put('/:id', isLoggedIn, validateApplication, catchAsync(applications.editApplication));
-
-router.delete('/:id', isLoggedIn, catchAsync(applications.deleteApplication));
 
 module.exports = router;

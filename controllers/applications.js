@@ -1,14 +1,22 @@
 const Application = require('../models/application');
 const user = require('../models/user');
-const { application } = require('express');
-
 
 module.exports.index = async (req, res) => {
+    function escapeRegex(text) { // fuzzy search regex
+        return text.replace( /[-[\]{}*+?.,\\^$|#\s]/g, "\\$&" );
+    };
+
     const reqUser = await user.findOne({ username: req.user.username });
+    if(req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        const applications = await Application.find({ owner: reqUser._id, companyName: regex});
+        res.render('applications/index', { applications } );
+
+    } else {
     const applications = await Application.find({ owner: reqUser._id});
     // const applications = await Application.find({}).populate('owner');
     res.render('applications/index', { applications } );
-
+    }
     // res.send(applications)
 };
 
