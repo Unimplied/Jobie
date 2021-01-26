@@ -61,25 +61,29 @@ const scriptSrcUrls = [
     "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js",
     "https://stackpath.bootstrapcdn.com",
-    "https://use.fontawesome.com/releases/v5.15.2/js/all.js",
-    "https://use.fontawesome.com/releases/v5.15.2/css/svg-with-js.css",
-    "https://kit.fontawesome.com",
     "https://cdnjs.cloudflare.com",
     "https://cdn.jsdelivr.net",
+    "https://use.fontawesome.com/releases/v5.15.2/js/all.js",
+    "https://kit.fontawesome.com/c07c93b591.js"    
 ];
 const styleSrcUrls = [
     "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css",
-    "https://kit-free.fontawesome.com",
-    "https://stackpath.bootstrapcdn.com",
-    "https://fonts.googleapis.com",
-    "https://use.fontawesome.com",
+    "https://use.fontawesome.com/releases/v5.15.2/css/svg-with-js.css",
+    "https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap",
 ];
 const connectSrcUrls = [
-
+    "https://ka-f.fontawesome.com/releases/v5.15.2/css/free-v4-font-face.min.css?token=c07c93b591",
+    "https://ka-f.fontawesome.com/releases/v5.15.2/css/free.min.css?token=c07c93b591",
+    "https://ka-f.fontawesome.com/releases/v5.15.2/css/free-v4-shims.min.css?token=c07c93b591",
 ];
-const fontSrcUrls = [];
+const fontSrcUrls = [
+    "https://kit.fontawesome.com/c07c93b591.js",
+    "https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2",
+    "https://fonts.gstatic.com/s/lato/v17/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2",
+    "https://ka-f.fontawesome.com/releases/v5.15.2/webfonts/free-fa-solid-900.woff2",
+];
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
