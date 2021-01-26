@@ -44,8 +44,13 @@
     <%} %> 
     <% if(!searchQuery) {%> 
     <h5>Your applications at a glance</h5>
-    <h6>You have <%= applications.length %> applications open. </h6>
-    <% } %> 
+            <% if(applications.length == 1) { %> 
+                <h6>You have <%= applications.length %> application open. </h6>
+            <% } else { %> 
+                <h6>You have <%= applications.length %> applications open. </h6>
+            <% } %>
+        <% } %>  
+
 
     <% for (let application of applications) {%>
     <div class="card my-2 zoom shadow-sm">
