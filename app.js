@@ -92,8 +92,8 @@ const scriptSrcUrls = [
     "https://use.fontawesome.com/releases/v5.15.2/js/all.js",
     "https://kit.fontawesome.com/c07c93b591.js",
     "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js",
-    "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js",
-    "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js",    
+    "https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js",
+    "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js",    
 ];
 const styleSrcUrls = [
     "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js",
@@ -101,7 +101,7 @@ const styleSrcUrls = [
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css",
     "https://use.fontawesome.com/releases/v5.15.2/css/svg-with-js.css",
     "https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap",
-    "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+    "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
 ];
 const connectSrcUrls = [
     "https://ka-f.fontawesome.com/releases/v5.15.2/css/free-v4-font-face.min.css?token=c07c93b591",
