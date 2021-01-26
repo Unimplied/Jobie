@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+};
+
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
@@ -9,6 +13,7 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
+const MongoDBStore = require("connect-mongo")(session);
 
 const applications = require('./routes/applications') // applications routes
 const stats = require('./routes/stats'); // stats route
@@ -17,12 +22,22 @@ const users = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const path = require('path');
 
-mongoose.connect('mongodb://localhost:27017/Jobie', {
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/Jobie';
+const storeSecret = process.env.STORE_SECRET || 'thisismylocaldevsessionsecret';
+
+mongoose.connect( dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
     useFindAndModify: false
 });
+
+// mongoose.connect('mongodb://localhost:27017/Jobie', {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useUnifiedTopology: true,
+//     useFindAndModify: false
+// });
 
 const db = mongoose.connection;
 
@@ -37,11 +52,22 @@ app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public'))); // serving static assets
-app.use(mongoSanitize()) // sanitizes incoming requests, reduces risk of Mongo Injection
+app.use(mongoSanitize()); // sanitizes incoming requests, reduces risk of Mongo Injection
+
+const store = new MongoDBStore({
+    url: dbUrl,
+    secret: storeSecret,
+    touchAfter: 24 * 3600 //touch after 1 day
+});
+
+store.on("error", function(e) {
+    console.log("Session Store Error: ", e);
+});
 
 const sessionConfig = {
+    store, // mongo is now used to store session store
     name: 'WhichSiteAmI?hahaha',
-    secret: 'secret',
+    secret: storeSecret,
     resave: false,
     saveUninitialized: true,
     cookie: {
