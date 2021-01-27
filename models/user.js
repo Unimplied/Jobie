@@ -13,7 +13,9 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Application'
         }
-    ]
+    ],
+    isVerified: Boolean,
+    emailToken: String,
 });
 
 UserSchema.plugin(passportLocalMongoose); // Passport adds on username, password, ensures uniqueness of usernames

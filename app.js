@@ -22,7 +22,9 @@ const users = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const path = require('path');
 
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/Jobie';
+const dbUrl = 'mongodb://localhost:27017/Jobie';
+// process.env.DB_URL || Don't forget to add this to dbUrl
+
 const storeSecret = process.env.STORE_SECRET || 'thisismylocaldevsessionsecret';
 
 mongoose.connect( dbUrl, {
@@ -161,13 +163,6 @@ app.use('/', users)
 app.get('/', (req, res) => {
     res.render('home')
 });
-
-// Commented section to test DB connection
-// app.get('/submitApplication', async (req, res) => {
-//     const application = new Application({ companyName: 'JP Morgan Chase', jobTitle: 'Software Engineer', jobLocation: 'Jersey City, New Jersey', dateApplied: '01/18/2021', status: 'Rejected'})
-//     await application.save();
-//     res.send(application);
-// });
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404));

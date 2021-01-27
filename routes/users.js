@@ -3,14 +3,18 @@ const router = express.Router();
 const catchAsync = require('../utilities/catchAsync');
 const passport = require('passport');
 const users = require('../controllers/users');
+const { isVerified } = require('../middleware');
+
 
 router.route('/register')
     .get(users.renderRegisterForm)
     .post(catchAsync(users.registerUser))
 
+router.get('/verify-email', users.verifyUser);
+
 router.route('/login')
     .get(users.renderLoginForm)
-    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.loginUser)
+    .post(isVerified, passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.loginUser)
 
 router.get('/logout', users.logoutUser);
 
